@@ -1,0 +1,27 @@
+[Unit]
+Description=SSL Toolkit Node.js Application
+After=network.target
+
+[Service]
+Type=simple
+User=ssltoolkit
+Group=ssltoolkit
+
+WorkingDirectory=/opt/ssl-toolkit
+EnvironmentFile=/etc/ssl-toolkit.env
+ExecStart=/usr/bin/node /opt/ssl-toolkit/server.js
+
+Restart=on-failure
+RestartSec=5
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+UMask=0077
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
