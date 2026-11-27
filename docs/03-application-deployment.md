@@ -25,7 +25,7 @@ If `.git` was excluded when the application was copied into `/opt`, record the s
 
 ## Runtime and installation
 
-The initial design uses Node.js 24 LTS and system OpenSSL. 
+The initial design uses Node.js 24 LTS and system OpenSSL.
 
 ```bash
 node -v
@@ -74,7 +74,7 @@ This file is intentionally **not** included in the repository. Real environment 
 
 ## Service supervision
 
-See the sanitized template at [`../systemd/ssl-toolkit.service.example`](../systemd/ssl-toolkit.service.example). It illustrates:
+See the sanitized template at [`../systemd/ssl-toolkit.service`](../systemd/ssl-toolkit.service). It illustrates:
 
 - `ExecStart=/usr/bin/node /opt/ssl-toolkit/server.js`
 - `User=ssltoolkit`, `Group=ssltoolkit`
@@ -103,7 +103,7 @@ curl --fail --silent --show-error --max-time 10 \
   http://127.0.0.1:3000/ -o /dev/null
 ```
 
-**Expected design:** TCP `127.0.0.1:3000` only, *not* `0.0.0.0:3000`. Note that response behaviour depends on the application's actual routes; `curl -I` may not match `GET` handling, so a GET request is preferable.
+**Expected design:** TCP `127.0.0.1:3000` only, _not_ `0.0.0.0:3000`. Note that response behaviour depends on the application's actual routes; `curl -I` may not match `GET` handling, so a GET request is preferable.
 
 For workstation-only review before public HTTPS, SSH local forwarding can expose the backend to a browser on the operator's computer without opening port 3000 in the security group:
 

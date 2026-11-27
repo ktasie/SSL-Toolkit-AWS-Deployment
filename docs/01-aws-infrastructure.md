@@ -88,7 +88,7 @@ lsblk -f
 df -h /
 ip -br addr
 ip route
-curl -I --max-time 10 https://www.amazon.com
+curl -I --max-time 10 https://aws-ssltools.virtualsolutionsng.com
 ```
 
 **Why EBS?** EC2 provides CPU/RAM; EBS provides the root disk where Ubuntu, application code, packages, configuration and persisted logs reside. Stopping an EBS-backed instance preserves the volume; terminating usually deletes the root volume if delete-on-termination is enabled. 
