@@ -1,0 +1,10 @@
+[Unit]
+Description=SSL Toolkit Health Check Every Five Minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+Unit=ssltoolkit-health-check.service
+
+[Install]
+WantedBy=timers.target

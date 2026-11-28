@@ -42,7 +42,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
 sudo systemctl status amazon-cloudwatch-agent --no-pager
 ```
 
-The package URL is for `amd64` Ubuntu. Use the correct package for another architecture. Check package authenticity using AWS-published signature guidance when installing binaries.
+The package URL is for `x86_64` Ubuntu. Use the correct package for another architecture. Check package authenticity using AWS-published signature guidance when installing binaries.
 
 ## Alarms and SNS notifications
 
@@ -86,14 +86,14 @@ sudo env DOMAIN=YOUR_REAL_DEPLOYMENT_DOMAIN \
 printf 'Exit status: %s\n' "$?"
 ```
 
-On the server, copy the **reviewed and tested** health script to `/usr/local/bin/ssltoolkit-health-check.sh`, owned by root and executable by the service user. The effective script must not contain real secrets or keys.
+On the server, copied the **reviewed and tested** health script to `/usr/local/bin/ssltoolkit-health-check.sh`, owned by root and executable by the service user. The effective script does not contain real secrets or keys.
 
 ## systemd service and timer
 
 The two reference units are:
 
-- [`../systemd/ssltoolkit-health-check.service.example`](../systemd/ssltoolkit-health-check.service.example)
-- [`../systemd/ssltoolkit-health-check.timer.example`](../systemd/ssltoolkit-health-check.timer.example)
+- [`../systemd/ssltoolkit-health-check.service`](../systemd/ssltoolkit-health-check.service)
+- [`../systemd/ssltoolkit-health-check.timer`](../systemd/ssltoolkit-health-check.timer)
 
 The one-shot service executes the script; the timer runs it periodically after boot and after the previous unit activation. Unit output goes to journald.
 

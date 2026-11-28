@@ -1,18 +1,24 @@
 # Evidence screenshots
 
-Add your **own captured and redacted** screenshots here only after validating the result. Suggested filenames:
-
 VPC resource map and subnet route association
-![VPC Networking](vpc-networking.png) 
+![VPC Networking](vpc-networking.png)
 
 Instance characteristics and encrypted EBS root volume
 ![](ec2-storage.png)
 
-- `linux-service.png` — systemd application status (no secrets)
-- `https-result.png` — browser TLS validity and application response
-- `cloudwatch-metrics.png` — actual RAM and disk metrics
-- `cloudwatch-alarms.png` — configured alarms, with identifiers redacted
-- `health-check-pass.png` — Bash script output
+Systemd application status
+![Linux App Service](linux-service.png)
+
+Browser TLS validity and application response
+![HTTPS Result](http-result.png)
+
+Actual RAM and disk metrics
+![Cloud Watch Metrics](cloudwatch-metrics.png)
+
+Configured alarms, with identifiers redacted
+![Cloud Watch Alarms](cloudwatch-alarms.png)
+
+Bash script output
+![Health Check Pass](health-check-pass.png)
+
 - `incident-recovery.png` — controlled failure / successful recovery output
-
-
