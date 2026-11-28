@@ -81,7 +81,7 @@ sudo chmod 600 /etc/ssl-toolkit-health.env
 **Manual check:**
 
 ```bash
-sudo env DOMAIN=aws-ssltools.virtualsolutionsn.com \
+sudo env DOMAIN=aws-ssltools.virtualsolutionsng.com \
   /usr/local/bin/ssltoolkit-health-check.sh
 printf 'Exit status: %s\n' "$?"
 ```
