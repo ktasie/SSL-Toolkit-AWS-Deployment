@@ -8,15 +8,15 @@ Collect basic infrastructure and operating-system metrics, configure alert notif
 
 ## Signals and tools
 
-| Signal | Collector | Operational use |
-|---|---|---|
-| EC2 CPU / status checks | Default EC2 CloudWatch metrics | Detect host load and AWS health checks |
-| RAM used % | CloudWatch Agent | Observe memory pressure on a small VM |
-| Root disk used % | CloudWatch Agent | Detect filesystem exhaustion risk |
-| Node.js unit state | `systemctl` | Check application process supervision |
-| HTTP GET via NGINX/TLS | Bash + `curl` | Verify actual application response path |
-| Application logs | `journalctl` | Investigate startup/runtime failure |
-| Reverse-proxy logs | `/var/log/nginx/` | Diagnose upstream and HTTP failures |
+| Signal                  | Collector                      | Operational use                         |
+| ----------------------- | ------------------------------ | --------------------------------------- |
+| EC2 CPU / status checks | Default EC2 CloudWatch metrics | Detect host load and AWS health checks  |
+| RAM used %              | CloudWatch Agent               | Observe memory pressure on a small VM   |
+| Root disk used %        | CloudWatch Agent               | Detect filesystem exhaustion risk       |
+| Node.js unit state      | `systemctl`                    | Check application process supervision   |
+| HTTP GET via NGINX/TLS  | Bash + `curl`                  | Verify actual application response path |
+| Application logs        | `journalctl`                   | Investigate startup/runtime failure     |
+| Reverse-proxy logs      | `/var/log/nginx/`              | Diagnose upstream and HTTP failures     |
 
 ## CloudWatch Agent
 
@@ -48,12 +48,12 @@ The package URL is for `x86_64` Ubuntu. Use the correct package for another arch
 
 A Standard SNS topic (e.g., `ssltoolkit-ops-alerts`) has an email subscription which must be confirmed by the recipient. CloudWatch alarm actions send state-change notifications through this topic.
 
-| Alarm | Metric | Example policy |
-|---|---|---|
-| High CPU | `AWS/EC2 CPUUtilization` | Average >80% for 3 × 5-minute periods |
-| High memory | `CWAgent mem_used_percent` | >85% for 5 × 1-minute periods |
-| High disk | `CWAgent disk_used_percent` for `/` | >80% for 5 × 1-minute periods |
-| EC2 status check failure | `AWS/EC2 StatusCheckFailed` | >0 for 2 supported periods |
+| Alarm                    | Metric                              | Example policy                        |
+| ------------------------ | ----------------------------------- | ------------------------------------- |
+| High CPU                 | `AWS/EC2 CPUUtilization`            | Average >80% for 3 × 5-minute periods |
+| High memory              | `CWAgent mem_used_percent`          | >85% for 5 × 1-minute periods         |
+| High disk                | `CWAgent disk_used_percent` for `/` | >80% for 5 × 1-minute periods         |
+| EC2 status check failure | `AWS/EC2 StatusCheckFailed`         | >0 for 2 supported periods            |
 
 Thresholds are **initial operational thresholds**. Confirm the actual metric dimensions and periods used in the Console; do not present these as observed production incident statistics. No automatic reboot/terminate alarm action is part of this first version.
 
@@ -78,10 +78,10 @@ sudo chown root:root /etc/ssl-toolkit-health.env
 sudo chmod 600 /etc/ssl-toolkit-health.env
 ```
 
-**Example manual check:**
+**Manual check:**
 
 ```bash
-sudo env DOMAIN=YOUR_REAL_DEPLOYMENT_DOMAIN \
+sudo env DOMAIN=aws-ssltools.virtualsolutionsn.com \
   /usr/local/bin/ssltoolkit-health-check.sh
 printf 'Exit status: %s\n' "$?"
 ```
