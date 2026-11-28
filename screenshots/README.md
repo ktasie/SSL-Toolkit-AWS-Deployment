@@ -24,4 +24,3 @@ Configured alarms, with identifiers redacted
 Bash script output
 ![Health Check Pass](health-check-pass.png)
 
-- `incident-recovery.png` — controlled failure / successful recovery output
