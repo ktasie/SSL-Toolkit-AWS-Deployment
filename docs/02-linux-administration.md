@@ -107,7 +107,7 @@ With `unattended-upgrades` enabled, the apt configuration typically includes per
 
 ## Security limitations
 
-Host hardening does **not** guarantee that the Node.js application is secure. A certificate-processing service requires separate review for unsafe file uploads, temporary files, request size constraints, dependency vulnerabilities and private-key handling. Refer to [security/limitations](07-security-and-limitations.md).
+Host hardening does **not** guarantee that the Node.js application is secure. A certificate-processing service requires separate review for unsafe file uploads, temporary files, request size constraints, dependency vulnerabilities and private-key handling. 
 
 ## Reference
 

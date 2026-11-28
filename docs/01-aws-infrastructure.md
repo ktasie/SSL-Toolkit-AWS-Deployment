@@ -98,15 +98,15 @@ curl -I --max-time 10 https://aws-ssltools.virtualsolutionsng.com
 - A public-subnet EC2 host has more direct network exposure than a private instance behind a load balancer. Access rules are therefore deliberately restrictive.
 - The architecture has one availability zone and one VM: there is no automatic failover.
 - The manual console setup is not infrastructure as code. Terraform is planned as a subsequent version.
-- EBS and public IPv4 may incur charges even when compute is stopped; see [cost controls](09-cost-and-teardown.md).
+- EBS and public IPv4 may incur charges even when compute is stopped.
 
-## Evidence to attach
+## Evidence
 
 - VPC resource map and route table association, without sensitive identifiers.
-- EC2 instance details (AMI/instance type), encrypted root EBS volume.
+- EC2 instance details (AMI/instance type), root EBS volume.
 - Security-group inbound rules (no open port 3000, no world-open SSH).
 
-See [validation/evidence register](08-validation-evidence.md).
+See [Evidence register](../screenshots/README.md).
 
 ## Reference
 
